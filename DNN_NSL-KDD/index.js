@@ -43,6 +43,8 @@ async function runExample()
     x[39] = document.getElementById('box40').value;
     x[40] = document.getElementById('box41').value;
 
+    let tensorX = new onnx.Tensor(x, 'float32', [1, 41]);
+
     let session = new onnx.InferenceSession();
 
     await session.loadModel("./DNN_NSL-KDD.onnx");
