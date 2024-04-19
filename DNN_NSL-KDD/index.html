@@ -1,88 +1,88 @@
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
-  <script src="https://sdepasqu.github.io/ITS365/DNN_NSL-KDD/index.js"></script>
-  <style>
-    table, th, td {
-      border: 1px solid;
-    }
-    
-    #leftbox {
-      float:left; 
-      width:33%;
-      height:300px;
-    }
-    #middlebox{
-      float:left; 
-      width:33%;
-      height:300px;
-    }
-    #rightbox{
-      float:right;
-      width:33%;
-      height:300px;
-    }
-    h1{
-      color:green;
-      text-align:center;
-    }
-  </style>
+<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+<script src="./index.js"></script>
+<style>
+table, th, td {
+border: 1px solid;
+}
+
+#leftbox {
+float:left; 
+width:33%;
+height:300px;
+}
+#middlebox{
+float:left; 
+width:33%;
+height:300px;
+}
+#rightbox{
+float:right;
+width:33%;
+height:300px;
+}
+h1{
+color:green;
+text-align:center;
+}
+</style>
 </head>
 <body>
-  
-  <h1> Is it a malicious packet?</h1>
-  <div id="boxes1">
-    <input type="duration" id="box1" value="8"> x1 <br/>
-    <input type="protocol_type" id="box2" value="tcp"> x2 <br/>
-    <input type="service" id="box3" value="ftp_data"> x3 <br/>
-    <input type="src_bytes" id="box4" value="491"> x4 <br/>
-    <input type="dst_bytes" id="box5" value="0"> x5 <br/>
-    <input type="land" id="box6" value="0"> x6 <br/>
-    <input type="wrong_fragment" id="box7" value="0"> x7 <br/>
-    <input type="urgent" id="box8" value="0"> x8 <br/>
-    <input type="hot" id="box9" value="0"> x9 <br/>
-    <input type="num_failed_logins" id="box10" value="0"> x10 <br/>
-    <input type="logged_in" id="box11" value="0"> x11 <br/>
-    <input type="num_compromised" id="box12" value="0"> x12 <br/>
-    <input type="root_shell" id="box13" value="0"> x13 <br/>
-    <input type="su_attempted" id="box14" value="0"> x14 <br/>
-    <input type="num_root" id="box15" value="0"> x15 <br/>
-    <input type="num_file_creations" id="box16" value="0"> x16 <br/>
-    <input type="num_shells" id="box17" value="0"> x17 <br/>
-    <input type="num_access_files" id="box18" value="0"> x18 <br/>
-    <input type="num_outbound_cmds" id="box19" value="0"> x19 <br/>
-    <input type="is_host_login" id="box20" value="0"> x20 <br/>
-    <input type="is_guest_login" id="box21" value="0"> x21 <br/>
-    <input type="count" id="box22" value="2"> x22 <br/>
-    <input type="srv_count" id="box23" value="2"> x23 <br/>
-    <input type="serror_rate" id="box24" value="0.0"> x24 <br/>
-    <input type="srv_serror_rate" id="box25" value="0.0"> x25 <br/>
-    <input type="rerror_rate" id="box26" value="0.0"> x26 <br/>
-    <input type="srv_rerror_rate" id="box27" value="0.0"> x27 <br/>
-    <input type="same_srv_rate" id="box28" value="1.00"> x28 <br/>
-    <input type="diff_srv_rate" id="box29" value="0.00"> x29 <br/>
-    <input type="srv_diff_host_rate" id="box30" value="0.00"> x30 <br/>
-    <input type="dst_host_count" id="box31" value="150"> x31 <br/>
-    <input type="dst_host_srv_count" id="box32" value="25"> x32 <br/>
-    <input type="dst_host_same_srv_rate" id="box33" value="0.17"> x33 <br/>
-    <input type="dst_host_diff_srv_rate" id="box34" value="0.03"> x34 <br/>
-    <input type="dst_host_same_src_port_rate" id="box35" value="0.17"> x35 <br/>
-    <input type="dst_host_srv_diff_host_rate" id="box36" value="0.00"> x36 <br/>
-    <input type="dst_host_serror_rate" id="box37" value="0.00"> x37 <br/>
-    <input type="dst_host_srv_serror_rate" id="box38" value="0.00"> x38 <br/>
-    <input type="dst_host_rerror_rate" id="box39" value="0.05"> x39 <br/>
-    <input type="dst_host_srv_rerror_rate" id="box40" value="0.00"> x40 <br/>
-    <input type="attack" id="box41" value="0"> x41 <br/>
-  </div>
-  
-  <div>
-    <input style="background-color:yellow" type="button" value="Run" onclick="runExample()"/>
-  </div>
 
-  <div id="boxes2">
-    <h2>Inference </h2>
-    <div id="predictions">
-    </div>
-  </div>
+<h1> Is it a malicious packet?</h1>
+<div id="boxes1">
+<input type="duration" id="box1" value="8"> x1 <br/>
+<input type="protocol_type" id="box2" value="tcp"> x2 <br/>
+<input type="service" id="box3" value="ftp_data"> x3 <br/>
+<input type="src_bytes" id="box4" value="491"> x4 <br/>
+<input type="dst_bytes" id="box5" value="0"> x5 <br/>
+<input type="land" id="box6" value="0"> x6 <br/>
+<input type="wrong_fragment" id="box7" value="0"> x7 <br/>
+<input type="urgent" id="box8" value="0"> x8 <br/>
+<input type="hot" id="box9" value="0"> x9 <br/>
+<input type="num_failed_logins" id="box10" value="0"> x10 <br/>
+<input type="logged_in" id="box11" value="0"> x11 <br/>
+<input type="num_compromised" id="box12" value="0"> x12 <br/>
+<input type="root_shell" id="box13" value="0"> x13 <br/>
+<input type="su_attempted" id="box14" value="0"> x14 <br/>
+<input type="num_root" id="box15" value="0"> x15 <br/>
+<input type="num_file_creations" id="box16" value="0"> x16 <br/>
+<input type="num_shells" id="box17" value="0"> x17 <br/>
+<input type="num_access_files" id="box18" value="0"> x18 <br/>
+<input type="num_outbound_cmds" id="box19" value="0"> x19 <br/>
+<input type="is_host_login" id="box20" value="0"> x20 <br/>
+<input type="is_guest_login" id="box21" value="0"> x21 <br/>
+<input type="count" id="box22" value="2"> x22 <br/>
+<input type="srv_count" id="box23" value="2"> x23 <br/>
+<input type="serror_rate" id="box24" value="0.0"> x24 <br/>
+<input type="srv_serror_rate" id="box25" value="0.0"> x25 <br/>
+<input type="rerror_rate" id="box26" value="0.0"> x26 <br/>
+<input type="srv_rerror_rate" id="box27" value="0.0"> x27 <br/>
+<input type="same_srv_rate" id="box28" value="1.00"> x28 <br/>
+<input type="diff_srv_rate" id="box29" value="0.00"> x29 <br/>
+<input type="srv_diff_host_rate" id="box30" value="0.00"> x30 <br/>
+<input type="dst_host_count" id="box31" value="150"> x31 <br/>
+<input type="dst_host_srv_count" id="box32" value="25"> x32 <br/>
+<input type="dst_host_same_srv_rate" id="box33" value="0.17"> x33 <br/>
+<input type="dst_host_diff_srv_rate" id="box34" value="0.03"> x34 <br/>
+<input type="dst_host_same_src_port_rate" id="box35" value="0.17"> x35 <br/>
+<input type="dst_host_srv_diff_host_rate" id="box36" value="0.00"> x36 <br/>
+<input type="dst_host_serror_rate" id="box37" value="0.00"> x37 <br/>
+<input type="dst_host_srv_serror_rate" id="box38" value="0.00"> x38 <br/>
+<input type="dst_host_rerror_rate" id="box39" value="0.05"> x39 <br/>
+<input type="dst_host_srv_rerror_rate" id="box40" value="0.00"> x40 <br/>
+<input type="attack" id="box41" value="0"> x41 <br/>
+</div>
+
+<div>
+<input style="background-color:yellow" type="button" value="Run" onclick="runExample()"/>
+</div>
+
+<div id="boxes2">
+<h2>Inference </h2>
+<div id="predictions">
+</div>
+</div>
 </body>
 </html>
