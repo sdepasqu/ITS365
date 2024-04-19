@@ -21,7 +21,7 @@ async function runExample() {
             predictions.innerHTML = ` <hr> Got an output tensor with values: <br/>
                 <table>
                 <tr>
-                <td>  Rating of Wine Quality  </td>
+                <td>  Is it an attack?  </td>
                 <td id="td0">  ${data[0].toFixed(2)}  </td>
                 </tr>
                 </table>`;
