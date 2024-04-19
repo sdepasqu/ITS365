@@ -53,6 +53,8 @@ async function runExample()
 
     let predictions = document.getElementById('predictions');
 
+    console.log(outputData)
+
     predictions.innerHTML = ` <hr> Got an output tensor with values: <br/>
     <table>
     <tr>
