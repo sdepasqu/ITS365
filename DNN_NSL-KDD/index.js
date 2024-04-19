@@ -22,7 +22,7 @@ async function runExample() {
                 <table>
                 <tr>
                 <td>  Is it an attack?  </td>
-                <td id="td0">  ${data[0].toFixed(2)}  </td>
+                <td id="td0">  ${data[0]}  </td>
                 </tr>
                 </table>`;
         } else {
