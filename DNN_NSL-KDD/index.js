@@ -47,7 +47,7 @@ async function runExample()
 
     let session = new onnx.InferenceSession();
 
-    await session.loadModel("https://sdepasqu.github.io/ITS365/DNN_NSL-KDD/DNN_NSL-KDD.onnx");
+    await session.loadModel("./DNN_NSL-KDD.onnx");
     let outputMap = await session.run([tensorX]);
     let outputData = outputMap.get('output1');
 
