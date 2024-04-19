@@ -44,16 +44,18 @@ async function runExample()
     x[40] = document.getElementById('box41').value;
 
     let tensorX = new onnx.Tensor(x, 'float32', [1, 41]);
+    console.log(tensorX)
 
     let session = new onnx.InferenceSession();
 
     await session.loadModel("./DNN_NSL-KDD.onnx");
     let outputMap = await session.run([tensorX]);
+    console.log(outputMap)
     let outputData = outputMap.get('output1');
+    console.log(outputData)
 
     let predictions = document.getElementById('predictions');
-
-    console.log(outputData)
+    console.log(predictions)
 
     predictions.innerHTML = ` <hr> Got an output tensor with values: <br/>
     <table>
