@@ -43,8 +43,6 @@ async function runExample()
     x[39] = document.getElementById('box40').value;
     x[40] = document.getElementById('box41').value;
 
-    let tensorX = new onnx.Tensor(x, 'float32', [1, 41]);
-
     let session = new onnx.InferenceSession();
 
     await session.loadModel("./DNN_NSL-KDD.onnx");
@@ -56,7 +54,7 @@ async function runExample()
     predictions.innerHTML = ` <hr> Got an output tensor with values: <br/>
     <table>
     <tr>
-    <td>  Rating of Wine Quality  </td>
+    <td>  Is it an attack?  </td>
     <td id="td0">  ${outputData.data[0].toFixed(2)}  </td>
     </tr>
     </table>`;
